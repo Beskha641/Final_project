@@ -24,3 +24,8 @@ class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
     USER_ICON = (By.CSS_SELECTOR, ".icon-user")
+    BASKET_LINK = (By.CSS_SELECTOR, ".btn-group :nth-child(1).btn")
+
+class BasketPageLocators():
+    BASKET_IS_EMPTY_TEXT = (By.CSS_SELECTOR, "#content_inner a")
+    BASKET_TOTALS = (By.CSS_SELECTOR, "#basket_totals")

@@ -1,5 +1,6 @@
 import pytest
 import time
+from .pages.basket_page import BasketPage
 from .pages.base_page import BasePage
 from .pages.product_page import ProductPage
 from .pages.login_page import LoginPage
@@ -52,6 +53,15 @@ def test_guest_can_go_to_login_page_from_product_page (browser):
     page = ProductPage(browser, product_base_link)
     page.open()
     page.go_to_login_page()
+
+
+def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
+    page = ProductPage(browser, product_base_link)
+    page.open()
+    page.go_to_basket_page()
+    page = BasketPage(browser, product_base_link)
+    page.basket_totals_is_disappeared()
+    page.empty_basket_text_is_disappeared()
 
 
 class TestUserAddToBasketFromProductPage():
